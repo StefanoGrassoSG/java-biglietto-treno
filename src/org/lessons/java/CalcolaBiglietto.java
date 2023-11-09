@@ -1,5 +1,6 @@
 package org.lessons.java;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class CalcolaBiglietto {
@@ -21,14 +22,17 @@ public class CalcolaBiglietto {
 		double finalPrice = km2 * PRICE;
 		final double DISCOUNT20 = finalPrice * 0.20;
 		final double DISCOUNT40 = finalPrice * 0.40;
-		double finalPrice2 = finalPrice - DISCOUNT20;
-		double finalPrice3 = finalPrice - DISCOUNT40;
+		double PriceDiscount20 = finalPrice - DISCOUNT20;
+	    String prezzoFormattato20 = String.format("%.2f", PriceDiscount20);
+	
+		double PriceDiscount40 = finalPrice - DISCOUNT40;
+		String prezzoFormattato40 = String.format("%.2f", PriceDiscount40);
 		
 		if(age2 <= 18) {
-			System.out.println("il prezzo del biglietto è: " + finalPrice2);
+			System.out.println("il prezzo del biglietto è: " + prezzoFormattato20);
 		}
 		else if(age2 >= 65) {
-			System.out.println("il prezzo del biglietto è: " + finalPrice3);
+			System.out.println("il prezzo del biglietto è: " + prezzoFormattato40);
 		}
 		else {
 			System.out.println("il prezzo del biglietto è: " + finalPrice);
@@ -37,4 +41,5 @@ public class CalcolaBiglietto {
 		in.close();
 		
 	}
+
 }
